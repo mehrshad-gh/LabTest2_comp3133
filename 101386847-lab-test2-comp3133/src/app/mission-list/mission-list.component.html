@@ -1,0 +1,14 @@
+<h1 mat-toolbar>SpaceX Mission Launch List</h1>
+<app-mission-filter (yearSelected)="onYearSelected($event)"></app-mission-filter>
+<ul>
+        <li *ngFor="let launch of launches">
+            <h3 mat-card-header>{{ launch.mission_name }} ({{ launch.launch_year }})</h3>
+            <div>
+                <img src="{{ launch.links.mission_patch_small }}" alt="{{ launch.mission_name }} mission patch">
+                <p mat-card>{{ launch.details}}</p>
+            </div>
+            <button mat-raised-button color="secondary">
+                <a routerLink="/mission/{{launch.flight_number}}">Checking Details</a>
+            </button>
+        </li>
+</ul>
